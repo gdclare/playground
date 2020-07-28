@@ -1,30 +1,30 @@
-﻿using Playground.Core.Domain;
+﻿using Playground.Core.Logic.Api.Spotify.DataModels.Album;
 using Playground.Core.Logic.Models;
 using System.Collections.Generic;
 
 namespace Playground.Core.Logic.Mapping
 {
     //TODO - If we have automapper remove me
-    public class AlbumToAlbumModel
+    public class AlbumDtoToAlbumModel
     {
-        public static ICollection<AlbumModel> Map(ICollection<Album> domainAlbums)
+        public static ICollection<AlbumViewModel> Map(AlbumDataModel dataAlbums)
         {
-            ICollection<AlbumModel> albums = new List<AlbumModel>();
-            foreach (var domainAlbum in domainAlbums)
+            ICollection<AlbumViewModel> albums = new List<AlbumViewModel>();
+            foreach (var dataAlbum in dataAlbums.AlbumDetails)
             {
-                var album = new AlbumModel(
-                    domainAlbum.Id,
-                    domainAlbum.Name,
-                    domainAlbum.Popularity
+                var album = new AlbumViewModel(
+                    0,
+                    dataAlbum.Name,
+                    dataAlbum.Popularity
                     );
 
-                foreach (var domainArtist in domainAlbum.Artists)
+                foreach (var domainArtist in dataAlbum.Artists)
                 {
-                    album.Artists.Add(new ArtistModel(
-                        domainArtist.Id,
+                    album.Artists.Add(new ArtistViewModel(
+                        0,
                         domainArtist.Name,
                         domainArtist.FullDetailsLink,
-                        domainArtist.Uri.ToString()
+                        domainArtist.Uri
                         )
                     );
                 }

@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Playground.Core.Data.Abstract
+namespace Playground.Core.Logic.Api.Abstract
 {
     public abstract class ApiRepositoryBase
     {

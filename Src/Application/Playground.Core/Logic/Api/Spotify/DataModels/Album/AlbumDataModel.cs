@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Playground.Core.Data.Spotify.Api.DataModels.Album
+namespace Playground.Core.Logic.Api.Spotify.DataModels.Album
 {
     [JsonObject]
     public class AlbumDataModel

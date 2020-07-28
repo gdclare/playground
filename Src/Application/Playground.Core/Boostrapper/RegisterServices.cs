@@ -1,9 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Playground.Core.Data.Spotify.Api.Repos;
-using Playground.Core.Logic.Abstract;
 using Playground.Core.Logic.Services;
 using Playground.Core.Logic.Services.Abstract;
-using System;
 
 namespace Playground.Core.Boostrapper
 {
@@ -17,12 +14,10 @@ namespace Playground.Core.Boostrapper
 
         private static void RegisterSingleton(IServiceCollection services)
         {
-            throw new NotImplementedException();
         }
 
         private static void RegisterScoped(IServiceCollection services)
         {
-            services.AddScoped<IAlbumRepo, AlbumRepo>();
         }
 
         public static void RegisterTransient(IServiceCollection services)

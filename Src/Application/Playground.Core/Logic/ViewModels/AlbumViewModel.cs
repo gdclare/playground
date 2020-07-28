@@ -2,7 +2,7 @@
 
 namespace Playground.Core.Logic.Models
 {
-    public class AlbumModel
+    public class AlbumViewModel
     {
         public int Id { get; set; }
 
@@ -10,14 +10,14 @@ namespace Playground.Core.Logic.Models
 
         public int Popularity { get; set; }
 
-        public ICollection<ArtistModel> Artists { get; set; }
+        public ICollection<ArtistViewModel> Artists { get; set; }
 
-        public AlbumModel()
+        public AlbumViewModel()
         {
-            Artists = new List<ArtistModel>();
+            Artists = new List<ArtistViewModel>();
         }
 
-        public AlbumModel(int id, string name, int popularity) : this()
+        public AlbumViewModel(int id, string name, int popularity) : this()
         {
             Id = id;
             Name = name;

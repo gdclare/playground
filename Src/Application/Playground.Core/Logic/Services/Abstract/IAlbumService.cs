@@ -6,6 +6,6 @@ namespace Playground.Core.Logic.Services.Abstract
 {
     public interface IAlbumService
     {
-        Task<ICollection<AlbumModel>> GetAlbumsAsync();
+        Task<ICollection<AlbumViewModel>> GetAlbumsAsync();
     }
 }

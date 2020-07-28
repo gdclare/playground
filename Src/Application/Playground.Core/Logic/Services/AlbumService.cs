@@ -1,25 +1,36 @@
-﻿using Playground.Core.Logic.Abstract;
+﻿using Playground.Core.AppConfig.Abstract;
+using Playground.Core.Logic.Api.Abstract;
+using Playground.Core.Logic.Api.Models;
+using Playground.Core.Logic.Api.Spotify.DataModels.Album;
+using Playground.Core.Logic.Api.Spotify.Static;
 using Playground.Core.Logic.Mapping;
 using Playground.Core.Logic.Models;
 using Playground.Core.Logic.Services.Abstract;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Playground.Core.Logic.Services
 {
-    public class AlbumService : IAlbumService
+    public class AlbumService : ApiRepositoryBase, IAlbumService
     {
-        private readonly IAlbumRepo _albumRepo;
+        public AlbumService(IApplicationConfiguration applicationConfiguration) : base(applicationConfiguration)
+        {}
 
-        public AlbumService(IAlbumRepo albumRepo)
+        public async Task<ICollection<AlbumViewModel>> GetAlbumsAsync()
         {
-            _albumRepo = albumRepo;
-        }
+            var ids = new List<string>() {
+                AlbumCodes.Mogwai.HappySongs,
+                AlbumCodes.Mogwai.HardcoreWillNeverDie,
+                AlbumCodes.Mono.TheLastDawn
+                };
 
-        public async Task<ICollection<AlbumModel>> GetAlbumsAsync()
-        {
-            var domainAlbums = await _albumRepo.GetAlbumsAsync();
-            return AlbumToAlbumModel.Map(domainAlbums);
+            var idsConcat = string.Join(",", ids.Select(x => x));
+            var queryParameters = new QueryParams(new Dictionary<string, string>() { { "ids", idsConcat } });
+
+            var albumDataModel = await ExecuteGet<AlbumDataModel>(APIEndpoints.AlbumEndpoints.GetAlbums, queryParameters.ToString());
+
+            return AlbumDtoToAlbumModel.Map(albumDataModel);
         }        
     }
 }

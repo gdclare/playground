@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Playground.Core.Data.Spotify.Api.DataModels.Artist
+namespace Playground.Core.Logic.Api.Spotify.DataModels.Artist
 {
     [JsonObject]
     public class ArtistDetailDataModel

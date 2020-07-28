@@ -1,4 +1,4 @@
-﻿namespace Playground.Core.Data.Spotify.Api.Static
+﻿namespace Playground.Core.Logic.Api.Spotify.Static
 {
     public static class APIEndpoints
     {

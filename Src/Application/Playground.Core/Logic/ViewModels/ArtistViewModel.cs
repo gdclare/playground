@@ -2,7 +2,7 @@
 
 namespace Playground.Core.Logic.Models
 {
-    public class ArtistModel
+    public class ArtistViewModel
     {
         public int Id { get; set; }
 
@@ -12,7 +12,7 @@ namespace Playground.Core.Logic.Models
 
         public string Uri { get; set; }
 
-        public ArtistModel(int id, string name, string fullDetailsLink, string uri)
+        public ArtistViewModel(int id, string name, string fullDetailsLink, string uri)
         {
             Id = id;
             Name = name;

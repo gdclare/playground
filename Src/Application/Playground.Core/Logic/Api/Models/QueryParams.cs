@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Playground.Core.Data.Spotify.Api.DataModels
+namespace Playground.Core.Logic.Api.Models
 {
     public class QueryParams
     {
