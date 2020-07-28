@@ -2,7 +2,7 @@
 
 namespace Playground.Core.Data.Spotify.Api.DataModels
 {
-    internal class QueryParams
+    public class QueryParams
     {
         public QueryParams()
         {

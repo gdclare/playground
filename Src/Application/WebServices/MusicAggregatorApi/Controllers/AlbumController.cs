@@ -5,8 +5,9 @@ using Playground.Core.Logic.Services.Abstract;
 
 namespace MusicAggregatorApi.Controllers
 {
+    [ApiVersion("1.0")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("v{version:apiVersion}/[controller]")]
     public class AlbumController : ControllerBase
     {
         private readonly ILogger<AlbumController> _logger;

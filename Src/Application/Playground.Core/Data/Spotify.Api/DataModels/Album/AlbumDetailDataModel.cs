@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Playground.Core.Data.Spotify.Api.DataModels.Album
 {
     [JsonObject]
-    internal class AlbumDetailDataModel
+    public class AlbumDetailDataModel
     {
         [JsonProperty("album_type")]
         public string AlbumType { get; set; }

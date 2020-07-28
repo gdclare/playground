@@ -33,7 +33,7 @@ namespace Playground.Core.Data.Spotify.Api.Repos
             return MapUpAlbum(albumDataModel);
         }
 
-        //TODO - Add Automapper here
+        //TODO - Add Automapper or if possible dapper here
         //TODO - If automapper remove me
         private ICollection<Album> MapUpAlbum(AlbumDataModel albumDataModels)
         {

@@ -3,7 +3,7 @@
 namespace Playground.Core.Data.Spotify.Api.DataModels.Artist
 {
     [JsonObject]
-    internal class ArtistDetailDataModel
+    public class ArtistDetailDataModel
     {
         [JsonProperty("id")]
         public string Id { get; set; }
