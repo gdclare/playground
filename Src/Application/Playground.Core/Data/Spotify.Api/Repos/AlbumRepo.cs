@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
 using Playground.Core.Data.Spotify.Api.DataModels.Album;
 using Playground.Core.Data.Spotify.Api.DataModels;
 using Playground.Core.Data.Spotify.Api.Static;
@@ -9,6 +8,7 @@ using Playground.Core.Data.Abstract;
 using Playground.Core.Logic.Abstract;
 using Playground.Core.Domain;
 using Playground.Core.AppConfig.Abstract;
+using Playground.Core.Data.Spotify.Api.Mapping;
 
 namespace Playground.Core.Data.Spotify.Api.Repos
 {
@@ -30,34 +30,7 @@ namespace Playground.Core.Data.Spotify.Api.Repos
 
             var albumDataModel = await ExecuteGet<AlbumDataModel>(APIEndpoints.AlbumEndpoints.GetAlbums, queryParameters.ToString());
 
-            return MapUpAlbum(albumDataModel);
-        }
-
-        //TODO - Add Automapper or if possible dapper here
-        //TODO - If automapper remove me
-        private ICollection<Album> MapUpAlbum(AlbumDataModel albumDataModels)
-        {
-            ICollection<Album> albums = new List<Album>();
-            foreach (var albumData in albumDataModels.AlbumDetails)
-            {
-                var album = new Album(1,
-                    albumData.Name,
-                    albumData.Popularity
-                    );
-
-                foreach (var artistData in albumData.Artists)
-                {
-                    album.Artists.Add(new Artist(1,
-                        artistData.Name,
-                        artistData.FullDetailsLink,
-                        new Uri(artistData.Uri))
-                    );
-                }
-
-                albums.Add(album);
-            }
-
-            return albums;
+            return AlbumDtoToAlbum.Map(albumDataModel);
         }
     }
 }

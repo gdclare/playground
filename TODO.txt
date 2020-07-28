@@ -1,4 +1,3 @@
-2. Integrate Automapper
 3. Look at the TODOs
 
 5. Get started with Vue.js
