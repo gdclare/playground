@@ -1,1 +1,15 @@
 /.vs
+/Src/Application/Common/Bootstrapper/obj
+/Src/Application/Common/Bootstrapper/bin
+/Src/Application/Common/Common/obj
+/Src/Application/Common/Common/bin
+/Src/Application/Data/Data/obj
+/Src/Application/Data/Data/bin
+/Src/Application/Data/Spotify.Api/obj
+/Src/Application/Data/Spotify.Api/bin
+/Src/Application/Domain/Domain/obj
+/Src/Application/Domain/Domain/bin
+/Src/Application/Logic/Logic/obj
+/Src/Application/Logic/Logic/bin
+/Src/Application/WebServices/MusicAggregatorApi/obj
+/Src/Application/WebServices/MusicAggregatorApi/bin
