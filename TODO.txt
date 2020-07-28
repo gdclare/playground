@@ -1,8 +1,11 @@
-1. Add solution to GIT
+2. Change to use a COre project
+3. Hide the credentials from Git
+4. Can we run from the command line? Maybe speak to James.
+
 2. Integrate Automapper
-3. Look at routing, is there a nice way to handle versioning
+3. Look at routing, is there a nice way to handle API versioning
 3. Look at the TODOs
 4. See if it's possible to restict the logic layer so only view models can come back.
-5. Can we run from the command line? Maybe speak to James.
+
 
 5. Get started with Vue.js

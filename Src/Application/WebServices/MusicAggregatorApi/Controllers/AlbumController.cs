@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Logic.Services.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Playground.Core.Logic.Services.Abstract;
 
 namespace MusicAggregatorApi.Controllers
 {

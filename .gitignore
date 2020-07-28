@@ -13,3 +13,5 @@
 /Src/Application/Logic/Logic/bin
 /Src/Application/WebServices/MusicAggregatorApi/obj
 /Src/Application/WebServices/MusicAggregatorApi/bin
+/Src/Application/Playground.Core/obj
+/Src/Application/Playground.Core/bin
