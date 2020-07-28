@@ -1,6 +1,6 @@
-﻿using Playground.Core.Common.Exceptions;
+﻿using Playground.Core.AppConfig.Abstract;
+using Playground.Core.Common.Exceptions;
 using Playground.Core.Common.Helpers;
-using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -9,24 +9,22 @@ namespace Playground.Core.Data.Abstract
 {
     public abstract class ApiRepositoryBase
     {
-        //TODO - Should come from some sort of config
-        private Uri BaseUri => new Uri("https://api.spotify.com/");
-        private string oAuthToken => "BQDVEHEg9czlFzR4fmlDRnUQ1aWslYhUa2IukPyDq746LFj1tGx_FnVUBSP1wgV1vxuFZh8VW_JM7QNz6r8-TtAnId0osqE_J2XPIU8I0hLMf16LD1L7pC0ozYGp5AwuQ4BgM6_YFUc";
+        private readonly IApplicationConfiguration ApplicationConfiguration;
 
         //Even though this implements IDisposable make this static. It will reuse sockets. If it's used with a using, it will create a new socket for each implementation, eventually exhausting the connection pool.
-
         //TODO - Inject this
         //https://stackoverflow.com/questions/55391284/should-i-use-the-using-statement-with-httpclient
         private static HttpClient Client = new HttpClient();
 
-        public ApiRepositoryBase()
+        public ApiRepositoryBase(IApplicationConfiguration applicationConfiguration)
         {
-            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", oAuthToken);
+            ApplicationConfiguration = applicationConfiguration;
+            Client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ApplicationConfiguration.SpotifyApiConfiguration.oAuthToken);
         }
 
         protected async Task<T> ExecuteGet<T>(string url, string queryParameters)
         {
-            HttpResponseMessage response = await Client.GetAsync(BaseUri + url + queryParameters);
+            HttpResponseMessage response = await Client.GetAsync(ApplicationConfiguration.SpotifyApiConfiguration.BaseUri + url + queryParameters);
 
             if (!response.IsSuccessStatusCode)
             {

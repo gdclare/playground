@@ -3,6 +3,7 @@ using Playground.Core.Data.Spotify.Api.Repos;
 using Playground.Core.Logic.Abstract;
 using Playground.Core.Logic.Services;
 using Playground.Core.Logic.Services.Abstract;
+using System;
 
 namespace Playground.Core.Boostrapper
 {
@@ -12,6 +13,11 @@ namespace Playground.Core.Boostrapper
         {
             RegisterScoped(services);
             RegisterTransient(services);
+        }
+
+        private static void RegisterSingleton(IServiceCollection services)
+        {
+            throw new NotImplementedException();
         }
 
         private static void RegisterScoped(IServiceCollection services)

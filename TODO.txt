@@ -1,5 +1,3 @@
-2. Change to use a COre project
-3. Hide the credentials from Git
 4. Can we run from the command line? Maybe speak to James.
 
 2. Integrate Automapper

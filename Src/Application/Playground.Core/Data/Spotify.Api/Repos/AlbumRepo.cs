@@ -8,11 +8,15 @@ using Playground.Core.Data.Spotify.Api.Static;
 using Playground.Core.Data.Abstract;
 using Playground.Core.Logic.Abstract;
 using Playground.Core.Domain;
+using Playground.Core.AppConfig.Abstract;
 
 namespace Playground.Core.Data.Spotify.Api.Repos
 {
     public class AlbumRepo : ApiRepositoryBase, IAlbumRepo
     {
+        public AlbumRepo(IApplicationConfiguration applicationConfiguration) : base(applicationConfiguration)
+        {}
+
         public async Task<ICollection<Album>> GetAlbumsAsync()
         {
             var ids = new List<string>() {
